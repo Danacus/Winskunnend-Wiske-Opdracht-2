@@ -116,7 +116,9 @@ let edges
 let network
 let selected
 
-window.onload = () => {
+const updateComputers = () => {
+    computers = []
+    amount = parseInt(document.getElementById("computers").value) || 0
     for (let i = 0; i < amount; i++) {
         computers.push(new Computer(i))
     }
@@ -172,6 +174,11 @@ window.onload = () => {
             selected = undefined
         }
     })
+}
+
+window.onload = () => {
+    updateComputers()
+    document.getElementById("updateComputers").onclick = () => updateComputers()
 }
 
 class Computer {
